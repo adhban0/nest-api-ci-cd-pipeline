@@ -33,7 +33,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: adhban0/nest-api-ci-cd-pipeline:pr-${{ github.event.pull_request.number }}
+          tags: adhban/nest-api-ci-cd-pipeline:pr-${{ github.event.pull_request.number }}
 
   # Push to Docker Hub and Deploy (Main branch only)
   build-push-deploy:
@@ -58,7 +58,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: adhban0/nest-api-ci-cd-pipeline:latest
+          tags: adhban/nest-api-ci-cd-pipeline:latest
 
 #      - name: Deploy to Server
 #        uses: appleboy/ssh-action@v0.1.6
