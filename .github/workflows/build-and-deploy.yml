@@ -33,7 +33,7 @@ jobs:
         with:
           context: .
           push: false
-          tags: sadeeee/nest-api-ci-cd-pipeline:pr-${{ github.event.pull_request.number }}
+          tags: adhban0/nest-api-ci-cd-pipeline:pr-${{ github.event.pull_request.number }}
 
   # Push to Docker Hub and Deploy (Main branch only)
   build-push-deploy:
@@ -58,23 +58,23 @@ jobs:
         with:
           context: .
           push: true
-          tags: sadeeee/nest-api-ci-cd-pipeline:latest
+          tags: adhban0/nest-api-ci-cd-pipeline:latest
 
-      - name: Deploy to Server
-        uses: appleboy/ssh-action@v0.1.6
-        with:
-          host: ${{ secrets.SERVER_IP }}
-          username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SERVER_SSH_KEY }}
-          port: 22
-          script: |
-            echo "Deploying production container..."
-            docker pull sadeeee/nest-api-ci-cd-pipeline:latest
-            docker stop nest-api-prod || true
-            docker rm nest-api-prod || true
-            docker run -d \
-              --restart unless-stopped \
-              --name nest-api-prod \
-              -p 3000:3000 \
-              -e NODE_ENV=production \
-              sadeeee/nest-api-ci-cd-pipeline:latest
+#      - name: Deploy to Server
+#        uses: appleboy/ssh-action@v0.1.6
+#        with:
+#          host: ${{ secrets.SERVER_IP }}
+#          username: ${{ secrets.SERVER_USER }}
+#          key: ${{ secrets.SERVER_SSH_KEY }}
+#          port: 22
+#          script: |
+#            echo "Deploying production container..."
+#            docker pull sadeeee/nest-api-ci-cd-pipeline:latest
+#            docker stop nest-api-prod || true
+#            docker rm nest-api-prod || true
+#            docker run -d \
+#              --restart unless-stopped \
+#              --name nest-api-prod \
+#              -p 3000:3000 \
+#              -e NODE_ENV=production \
+#              sadeeee/nest-api-ci-cd-pipeline:latest
