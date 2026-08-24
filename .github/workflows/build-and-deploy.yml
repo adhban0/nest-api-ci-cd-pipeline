@@ -1,43 +1,44 @@
 name: Build and Deploy (Main)
 
 on:
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
+  workflow_dispatch: 
   push:
     branches:
       - main
 
 jobs:
   # PR Build & Test only
-  pr-build:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+  # pr-build:
+  #   if: github.event_name == 'pull_request'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
+  #     - name: Use Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: 20
 
-      - name: Install dependencies
-        run: npm ci
+  #     - name: Install dependencies
+  #       run: npm ci
 
-      - name: Run tests
-        run: npm run test
+  #     - name: Run tests
+  #       run: npm run test
 
-      - name: Docker Build (no push)
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          push: false
-          tags: adhban/nest-api-ci-cd-pipeline:pr-${{ github.event.pull_request.number }}
+  #     - name: Docker Build (no push)
+  #       uses: docker/build-push-action@v5
+  #       with:
+  #         context: .
+  #         push: false
+  #         tags: adhban/nest-api-ci-cd-pipeline:pr-${{ github.event.pull_request.number }}
 
   # Push to Docker Hub and Deploy (Main branch only)
   build-push-deploy:
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: production  # 👈 ties job to the Production environment
     steps:
