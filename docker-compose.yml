@@ -10,6 +10,7 @@ services:
       - "3000:3000"
     environment:
       NODE_ENV: production
-      DB_PORT: 1000
+      DB_PORT: 1001
+    
     profiles:
       - production
