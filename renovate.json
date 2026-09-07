@@ -6,7 +6,6 @@
   "commitBody": "[skip ci]",
   "ignorePaths": ["docker-compose.yml"],
   "minimumReleaseAge": "3 days",
-  "baseBranchPatterns": ["renovate-config"],
   "reviewers": [
         "adhban0"
     ],
