@@ -4,7 +4,7 @@ import * as os from 'os';
 @Injectable()
 export class AppService {
     getHello(): string {
-        return 'Hello World!';
+        return 'Hello Woorld!';
     }
 
     getHealth(): { status: string; uptime: number; timestamp: string } {
