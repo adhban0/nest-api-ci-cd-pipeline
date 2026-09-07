@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended", ":disableMajorUpdates", "helpers:pinGitHubActionDigests"
+  ],
+  "commitBody": "[skip ci]",
+  "ignorePaths": ["docker-compose.yml"],
+  "minimumReleaseAge": "3 days",
+  "baseBranchPatterns": ["renovate-config"],
+  "reviewers": [
+        "adhban0"
+    ],
+  "packageRules": [
+    {
+      "matchManagers": ["github-actions"],
+      "enabled": true
+    }]
+
+}
