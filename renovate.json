@@ -6,7 +6,7 @@
   "commitBody": "[skip ci]",
   "ignorePaths": ["docker-compose.yml"],
   "minimumReleaseAge": "3 days",
-  "reviewers": [
+  "assignees": [
         "adhban0"
     ],
   "packageRules": [
