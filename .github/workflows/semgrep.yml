@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - 'CHANGELOG.md'
       - 'package.json'
+      - 'package-lock.json'
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
   # Scan mainline branches if there are changes to .github/workflows/semgrep.yml:

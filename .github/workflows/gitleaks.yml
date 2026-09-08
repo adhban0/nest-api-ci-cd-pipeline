@@ -4,6 +4,7 @@ on:
     paths-ignore:
       - 'CHANGELOG.md'
       - 'package.json'
+      - 'package-lock.json'
   # push:
   workflow_dispatch:
   schedule:
