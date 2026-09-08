@@ -2,7 +2,10 @@ name: Semgrep
 
 on:
   # Scan changed files in PRs (diff-aware scanning):
-  pull_request: {}
+  pull_request: 
+    paths-ignore:
+      - 'CHANGELOG.md'
+      - 'package.json'
   # Scan on-demand through GitHub Actions interface:
   workflow_dispatch: {}
   # Scan mainline branches if there are changes to .github/workflows/semgrep.yml:

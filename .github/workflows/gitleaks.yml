@@ -1,6 +1,9 @@
 name: gitleaks
 on:
   pull_request:
+    paths-ignore:
+      - 'CHANGELOG.md'
+      - 'package.json'
   # push:
   workflow_dispatch:
   schedule:
